@@ -35,5 +35,22 @@ Route::delete("/eliminar_dato", [ReporteController::class, "eliminarDato"])->nam
 
 Route::get("/metodo_protegido",[ReporteController::class, "llamaMetodoProtegido"]);     // Prueba llamando a un metodo publico que llama a uno protegido
 Route::get("/metodo_privado",[ReporteController::class, "llamaMetodoPrivado"]);         // Prueba llamando a un metodo publico que llama a uno privado
-Route::get("formulario_parametrizado/{id}/{nombre}/{apellido?}", [ReporteController::class, "verUsuario"]);       // llamada a controlador con parametro opcional
-Route::get();
+Route::get("/formulario_parametrizado/{id}/{nombre}/{apellido?}", [ReporteController::class, "verUsuario"]);       // llamada a controlador con parametro opcional
+Route::get("/formulario_parametrizado1/{id}/{nombre}", [ReporteController::class, "verUsuario"])->where("id", "[1-3]+"); // Condicional con expresión regular de solo numeros con 1,2 y 3
+
+Route::get("/letras/{nombre}", function($nombre){           // Condicional para solo letras
+    return "El nombre es $nombre.";
+})->where("nombre","[A-Za-z]+");
+
+Route::get("/numeros_letras/{id}/{nombre}", function($id, $nombre){     // Prueba con multiples condicionales para los parametros
+    return "ID: $id<br>Nombre: $nombre.";
+})->where(["id"=>"[0-9]+", "nombre"=>"[A-Za-z]+"])->name("numeros.letras");
+
+// Prueba de colección o grupo de rutas
+Route::prefix("grupo_prueba")->group(function(){
+    Route::get("/linkprueba1", function(){return "<h1>Link de prueba 1</h1>";})->name("grupo_prueba.link1");
+    Route::get("/linkprueba2", function(){return "<h1>Link de prueba 2</h1>";})->name("grupo_prueba.link2");
+    Route::get("/linkprueba3/{nombre}", function($nombre){return "<h1>Link de prueba 3 con nombre $nombre</h1>";})->name("grupo_prueba.link3");
+});
+
+Route::get("/formulario_unificado", function(){return view("contenido");});
