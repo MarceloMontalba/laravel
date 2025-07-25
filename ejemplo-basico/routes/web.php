@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\HolaController;
 use App\Http\Controllers\ReporteController;
 
@@ -53,4 +54,8 @@ Route::prefix("grupo_prueba")->group(function(){
     Route::get("/linkprueba3/{nombre}", function($nombre){return "<h1>Link de prueba 3 con nombre $nombre</h1>";})->name("grupo_prueba.link3");
 });
 
-Route::get("/formulario_unificado", function(){return view("contenido");});
+Route::get("/formulario_unificado/{usuario?}", function($usuario='sin_identificar'){
+    $animales = ["Gato", "Perro", "Vaca", "Loro", "Hamster"];
+
+    return view("contenido", compact("usuario", "animales"));}
+);

@@ -1,9 +1,10 @@
+{{--Prueba de comentario en laravel--}}
 @extends('plantilla')
 
 @section('header')
   <div class="encabezado">
     <h1>Encabezado de la pagina</h1>
-    <p>Emcabezado de bienvenida</p>
+    <p>Encabezado de bienvenida</p>
   </div>
 @endsection
 
