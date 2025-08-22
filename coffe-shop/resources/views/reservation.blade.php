@@ -1,20 +1,11 @@
-@extends("structure")
+@extends("structure.page")
+
+@php
+    // Titulo que se mostrará en la cabecera
+    $titulo_pagina = 'Reservation';
+@endphp
 
 @section("content")
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
-        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
-            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Reservation</h1>
-            <div class="d-inline-flex mb-lg-5">
-                <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
-                <p class="m-0 text-white px-2">/</p>
-                <p class="m-0 text-white">Reservation</p>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
-
-
     <!-- Reservation Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -40,25 +31,25 @@
                             <h1 class="text-white mb-4 mt-5">Book Your Table</h1>
                             <form class="mb-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control bg-transparent border-primary p-4" placeholder="Name"
+                                    <input type="text" class="form-control border-primary p-4" placeholder="Name"
                                         required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control bg-transparent border-primary p-4" placeholder="Email"
+                                    <input type="email" class="form-control border-primary p-4" placeholder="Email"
                                         required="required" />
                                 </div>
                                 <div class="form-group">
                                     <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
+                                        <input type="text" class="form-control border-primary p-4 datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="time" id="time" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
+                                        <input type="text" class="form-control border-primary p-4 datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select bg-transparent border-primary px-4" style="height: 49px;">
+                                    <select class="custom-select border-primary px-4" style="height: 49px;">
                                         <option selected>Person</option>
                                         <option value="1">Person 1</option>
                                         <option value="2">Person 2</option>
