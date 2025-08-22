@@ -59,3 +59,5 @@ Route::get("/formulario_unificado/{usuario?}", function($usuario='sin_identifica
 
     return view("contenido", compact("usuario", "animales"));}
 );
+
+Route::match(["post","get"], "/linkcero", [ReporteController::class, "retomarControlador"])->name("retomar.controlador");

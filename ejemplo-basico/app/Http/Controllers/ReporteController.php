@@ -82,4 +82,12 @@ class ReporteController extends Controller
     public function verUsuario($id, $nombre, $apellido=''){
         return "N° Usuario: $id<br>Nombre: $nombre $apellido";
     }
+
+    public function retomarControlador(Request $datos){
+        $nombre   = $datos->input("nombre");
+        $apellido = $datos->input("apellido");
+        $edad     = $datos->input("edad");
+
+        return view("link0", compact("nombre", "apellido", "edad"));
+    }
 }

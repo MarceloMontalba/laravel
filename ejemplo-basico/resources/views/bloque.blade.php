@@ -9,6 +9,6 @@
     @endif
   @endif
 
-  {{$usuario}} {{--Escapado seguro (se procesa las metiquetas html contenidas)--}}
-  {!!$usuario!!} {{--No escapado, imprime tal cual (el html se muestra como si fuese texto) --}}
+  {{$usuario}} {{--Escapado seguro (el html se muestra como si fuese texto)--}}
+  {!!$usuario!!} {{--No escapado, imprime tal cual (se procesa las metiquetas html contenidas)--}}
 </div>
